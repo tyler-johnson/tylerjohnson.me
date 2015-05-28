@@ -1,3 +1,4 @@
+@import "~normalize.css/normalize.css";
 @import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
 @import "~lesshat/build/lesshat.less";
 @import "~font-awesome/less/font-awesome.less";
@@ -5,11 +6,18 @@
 @fa-font-path: "/fonts";
 @fa-css-prefix: icon;
 @fa-font-size-base: 18px;
+@screen-sm: 769px;
 
 body {
 	font-family: "Oxygen Mono", monospace;
 	color: white;
 	font-size: 18px;
+	margin: 0;
+	padding: 0;
+
+	@media (max-width: @screen-sm) {
+		margin: 0 1em;
+	}
 }
 
 .container {
@@ -27,6 +35,18 @@ body {
 		small {
 			display: block;
 			font-size: 14px;
+		}
+
+		.mobile-too {
+			font-size: 14px;
+			color: fade(white, 80%);
+			margin-top: 10px;
+			opacity: 0;
+			.transition(opacity 500ms);
+
+			@media (max-width: @screen-sm) {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -107,5 +127,15 @@ body {
 	.details {
 		font-size: 20px;
 		color: fadeout(white, 20%);
+	}
+
+	@media (max-width: @screen-sm) {
+		h1.super {
+			font-size: 64px;
+		}
+
+		small {
+			font-size: 24px;
+		}
 	}
 }

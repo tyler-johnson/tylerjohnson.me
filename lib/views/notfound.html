@@ -8,7 +8,13 @@
 	</h1>
 
 	<div class="details">
-		Whatever you're looking for is gone, missing, or never existed.
+		{{ [
+			"If you're lost, you're probably doing it wrong.",
+			"Better luck next time, I guess.",
+			"There's nothing to see here. Move along.",
+			"Thank you. Come again.",
+			"Reloading this page several more times may solve the issue."
+		] | random }}
 	</div>
 </div>
 {% endblock %}
