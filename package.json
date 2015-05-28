@@ -20,8 +20,8 @@
 	"scripts": {
 		"start": "appcore -c config.json --env production --logLevel info",
 		"dev": "nodemon -i dist/ -i lib/client.js --exec \"./node_modules/.bin/appcore -c config.json\"",
-		"build": "appcore-browser -c lib/bundler_config.js",
-		"prepublish": "npm run build -- --env production --force"
+		"build": "appcore-browser -c lib/bundler_config.js --env production",
+		"postinstall": "npm run build --  --force"
 	},
 	"engines": {
 		"node": "0.12.x",
