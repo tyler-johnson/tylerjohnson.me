@@ -18,7 +18,7 @@
 		"underscore": "~1.8.3"
 	},
 	"scripts": {
-		"start": "appcore -c config.json",
+		"start": "appcore -c config.json --env production",
 		"dev": "nodemon -i dist/ -i lib/client.js --exec \"./node_modules/.bin/appcore -c config.json\"",
 		"build": "appcore-browser -c lib/bundler_config.js",
 		"prepublish": "npm run build -- --env production --force"
