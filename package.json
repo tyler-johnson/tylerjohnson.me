@@ -13,15 +13,13 @@
 		"npm": "2.x"
 	},
 	"dependencies": {
-		"@beneaththeink/appcore": "~1.2.2",
+		"@beneaththeink/appcore": "~2.0.0",
 		"@beneaththeink/appcore-browser": "~1.5.2",
 		"@beneaththeink/appcore-router": "~1.1.3",
-		"@beneaththeink/less-transform": "~1.1.0",
 		"bluebird": "~2.9.26",
 		"font-awesome": "~4.3.0",
 		"jquery": "~2.1.4",
 		"json-http": "~1.0.2",
-		"less-plugin-npm-import": "~2.0.0",
 		"lesshat": "~3.0.2",
 		"normalize.css": "~3.0.3",
 		"nunjucks": "~1.3.4",
@@ -36,6 +34,7 @@
 		"grunt-contrib-less": "~1.0.1",
 		"grunt-contrib-uglify": "~0.9.1",
 		"grunt-contrib-watch": "~0.6.1",
-		"grunt-wrap2000": "~0.1.0"
+		"grunt-wrap2000": "~0.1.0",
+		"less-plugin-npm-import": "~2.0.0"
 	}
 }
