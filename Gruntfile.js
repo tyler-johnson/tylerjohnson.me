@@ -37,32 +37,28 @@ module.exports = function(grunt) {
 			}
 		},
 		wrap2000: {
-			"dist-js": {
-				src: 'dist/client.js',
-				dest: 'dist/client.js',
+			scripts: {
+				files: [{
+					expand: true,
+					cwd: "dist/",
+					src: [ "*.js" ],
+					dest: "dist/",
+					isFile: true
+				}],
 				options: {
-					header: "/*!\n * TJ.me Client Scripts\n * (c) 2015 Tyler Johnson\n * MIT License\n * Version <%= pkg.version %>\n */\n"
+					header: "/*!\n * (c) 2015 Tyler Johnson\n * Version <%= pkg.version %>\n */\n"
 				}
 			},
-			"dev-js": {
-				src: 'dist/client.dev.js',
-				dest: 'dist/client.dev.js',
+			styles: {
+				files: [{
+					expand: true,
+					cwd: "dist/",
+					src: [ "*.css" ],
+					dest: "dist/",
+					isFile: true
+				}],
 				options: {
-					header: "/*!\n * TJ.me Client Scripts (with Source Map)\n * (c) 2015 Tyler Johnson\n * MIT License\n * Version <%= pkg.version %>\n */\n"
-				}
-			},
-			"dist-css": {
-				src: 'dist/client.css',
-				dest: 'dist/client.css',
-				options: {
-					header: "/*!\n * TJ.me Client Styles\n * (c) 2015 Tyler Johnson\n * MIT License\n * Version <%= pkg.version %>\n */\n"
-				}
-			},
-			"dev-css": {
-				src: 'dist/client.dev.css',
-				dest: 'dist/client.dev.css',
-				options: {
-					header: "/*!\n * TJ.me Client Styles (with Source Map)\n * (c) 2015 Tyler Johnson\n * MIT License\n * Version <%= pkg.version %>\n */\n"
+					header: "/*!\n * (c) 2015 Tyler Johnson\n * Version <%= pkg.version %>\n */\n"
 				}
 			}
 		},
@@ -90,17 +86,9 @@ module.exports = function(grunt) {
 					keepSpecialComments: 1
 				}
 			}
-		},
-		watch: {
-			dev: {
-				files: [ "lib/client.js", "lib/styles.less", "lib/vendor/**/*" ],
-				tasks: [ 'dev' ],
-				options: { spawn: false }
-			}
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-browserify');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -108,17 +96,17 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-	grunt.registerTask('build-dev-js', [ 'browserify:dev', 'wrap2000:dev-js' ]);
-	grunt.registerTask('build-dist-js', [ 'browserify:dist', 'wrap2000:dist-js', 'uglify:dist' ]);
-	grunt.registerTask('build-dev-css', [ 'less:dev', 'wrap2000:dev-css' ]);
-	grunt.registerTask('build-dist-css', [ 'less:dist', 'wrap2000:dist-css', 'cssmin:dist' ]);
+	grunt.registerTask('build-dev-js', [ 'browserify:dev' ]);
+	grunt.registerTask('build-dist-js', [ 'browserify:dist', 'uglify:dist' ]);
+	grunt.registerTask('build-dev-css', [ 'less:dev' ]);
+	grunt.registerTask('build-dist-css', [ 'less:dist', 'cssmin:dist' ]);
 
-	grunt.registerTask('build-dev', [ 'build-dev-js', 'build-dev-css' ]);
+	grunt.registerTask('build-dev', [ 'build-dev-js', 'build-dev-css']);
 	grunt.registerTask('build-dist', [ 'build-dist-js', 'build-dist-css' ]);
 
-	grunt.registerTask('dev', [ 'clean', 'build-dev' ]);
-	grunt.registerTask('dist', [ 'clean', 'build-dist' ]);
+	grunt.registerTask('dev', [ 'clean', 'build-dev', 'wrap2000'  ]);
+	grunt.registerTask('dist', [ 'clean', 'build-dist', 'wrap2000'  ]);
 
-	grunt.registerTask('default', [ 'clean', 'build-dev', 'build-dist' ]);
+	grunt.registerTask('default', [ 'clean', 'build-dev', 'build-dist', 'wrap2000'  ]);
 
 }
