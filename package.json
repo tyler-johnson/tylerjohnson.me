@@ -7,7 +7,9 @@
     "url": "https://github.com/tyler-johnson/tylerjohnson.me.git"
   },
   "main": "index.js",
-  "jsnext:main": "src/index.js",
+  "bin": {
+    "tjme-server": "cli.js"
+  },
   "scripts": {
     "lint": "eslint src/ test/",
     "build": "make clean && make",
