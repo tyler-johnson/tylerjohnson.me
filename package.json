@@ -1,39 +1,47 @@
 {
-	"name": "tjme",
-	"version": "2.1.1",
-	"main": "lib/index.js",
-	"scripts": {
-		"start": "appcore -c config.json",
-		"heroku": "appcore --logLevel info",
-		"postinstall": "grunt dist",
-		"dev": "nodemon -i lib/client.js -i dist/ --exec \"npm start\""
-	},
-	"engines": {
-		"node": "0.12.x",
-		"npm": "2.x"
-	},
-	"dependencies": {
-		"@beneaththeink/appcore": "~2.1.0",
-		"@beneaththeink/appcore-browser": "~2.0.0",
-		"@beneaththeink/appcore-router": "~1.1.3",
-		"bluebird": "~2.9.26",
-		"font-awesome": "~4.3.0",
-		"jquery": "~2.1.4",
-		"json-http": "~1.0.2",
-		"lesshat": "~3.0.2",
-		"normalize.css": "~3.0.3",
-		"nunjucks": "~1.3.4",
-		"underscore": "~1.8.3"
-	},
-	"devDependencies": {
-		"grunt": "~0.4.5",
-		"grunt-browserify": "~3.8.0",
-		"grunt-cli": "~0.1.13",
-		"grunt-contrib-clean": "~0.6.0",
-		"grunt-contrib-cssmin": "~0.12.3",
-		"grunt-contrib-less": "~1.0.1",
-		"grunt-contrib-uglify": "~0.9.1",
-		"grunt-wrap2000": "~0.1.0",
-		"less-plugin-npm-import": "~2.1.0"
-	}
+  "name": "@mrgalaxy/tjme",
+  "description": "My personal website.",
+  "author": "Tyler Johnson <tyler@tylerjohnson.me>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tyler-johnson/tylerjohnson.me.git"
+  },
+  "main": "index.js",
+  "bin": {
+    "tjme-server": "cli.js"
+  },
+  "scripts": {
+    "lint": "eslint src/ test/",
+    "build": "make clean && make",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "dependencies": {
+    "cloud-env": "^0.2.1",
+    "es6-promisify": "^3.0.0",
+    "express": "^4.13.4",
+    "lodash": "^4.5.1",
+    "minimist": "^1.2.0",
+    "nunjucks": "^2.3.0",
+    "request": "^2.69.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-external-helpers": "^6.5.0",
+    "babel-plugin-transform-async-to-generator": "^6.5.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.5.0",
+    "babel-plugin-transform-es2015-parameters": "^6.5.0",
+    "babel-plugin-transform-object-rest-spread": "^6.5.0",
+    "clean-css": "^3.4.9",
+    "eslint": "^2.2.0",
+    "node-sass": "^3.4.2",
+    "postcss-cli": "^2.5.1",
+    "resolve": "^1.1.7",
+    "rollup": "^0.25.4",
+    "rollup-plugin-babel": "^2.4.0",
+    "tape": "^4.4.0",
+    "semantic-release": "^4.3.5"
+  },
+  "keywords": ["tyler","johnson","tylerjohnson.me","tjme"],
+  "license": "MIT"
 }
