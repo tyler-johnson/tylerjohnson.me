@@ -4,8 +4,9 @@
 
 $screen-sm: 769px;
 
-html, body {
+html, body.home {
 	height: 100%;
+	position: relative;
 }
 
 body {
