@@ -1,5 +1,5 @@
 import minimist from "minimist";
-import {merge,repeat} from "lodash";
+import {merge,repeat,pick} from "lodash";
 import {readFileSync} from "fs";
 import config from "cloud-env";
 
@@ -42,7 +42,7 @@ if (argv.config) {
 	if (src) merge(argv, JSON.parse(src));
 }
 
-const app = createApp(argv);
+const app = createApp(pick(argv, "hostname"));
 
 app.listen(
 	argv.port || config.PORT || 8080,

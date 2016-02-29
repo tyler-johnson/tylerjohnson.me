@@ -42,6 +42,11 @@
     "tape": "^4.4.0",
     "semantic-release": "^4.3.5"
   },
-  "keywords": ["tyler","johnson","tylerjohnson.me","tjme"],
+  "keywords": [
+    "tyler",
+    "johnson",
+    "tylerjohnson.me",
+    "tjme"
+  ],
   "license": "MIT"
 }
