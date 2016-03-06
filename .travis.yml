@@ -18,7 +18,7 @@ notifications:
 before_install:
   - npm i -g npm@latest
 install:
-  - npm upgrade
+  - npm upgrade && npm prune && npm rebuild
 before_script:
   - npm run lint
 script:
