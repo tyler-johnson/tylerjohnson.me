@@ -1,6 +1,6 @@
 import minimist from "minimist";
 import rc from "rc";
-// import {merge,repeat,pick} from "lodash";
+import {name,version} from "../package.json";
 
 // using standard require so rollup doesn't include it
 const createApp = require("./");
@@ -29,8 +29,7 @@ $ tjme-server [OPTIONS]
 }
 
 if (argv.version) {
-  const pkg = JSON.parse(readFileSync(__dirname + "/package.json", "utf8"));
-  console.log("%s %s", pkg.name, pkg.version || "edge");
+  console.log("%s %s", name, version || "edge");
   process.exit(0);
 }
 
