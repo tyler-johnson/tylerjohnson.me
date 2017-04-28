@@ -14,13 +14,13 @@ export async function refresh() {
 }
 
 export async function fetch(opts) {
-	let r = await request({
+	let {body} = await request({
 		url: "http://www.colourlovers.com/api/colors/top",
 		qs: assign({ format: "json" }, opts),
 		json: true
 	});
 
-	return r[1];
+	return body;
 }
 
 async function update() {

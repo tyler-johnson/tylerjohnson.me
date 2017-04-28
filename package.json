@@ -1,5 +1,6 @@
 {
   "name": "@mrgalaxy/tjme",
+  "version": "0.0.0-edge",
   "description": "My personal website.",
   "author": "Tyler Johnson <tyler@tylerjohnson.me>",
   "repository": {
@@ -8,20 +9,24 @@
   },
   "main": "index.js",
   "bin": {
-    "tjme-server": "cli.js"
+    "tjme": "cli.js"
   },
   "scripts": {
     "lint": "eslint src/ test/",
-    "build": "make clean && make",
+    "clean": "shx rm -rf cli.js index.js styles.css",
+    "build-lib": "rollup src/index.js -c > index.js",
+    "build-cli": "rollup src/cli.js -c >> cli.js && shx chmod +x cli.js",
+    "build-styles": "node-sass src/styles.scss | cssnano > styles.css",
+    "build": "npm-run-all clean build-lib build-cli build-styles",
     "autorelease": "autorelease pre && npm publish && autorelease post"
   },
   "dependencies": {
-    "cloud-env": "^0.2.1",
-    "es6-promisify": "^3.0.0",
+    "es6-promisify": "^5.0.0",
     "express": "^4.13.4",
     "lodash": "^4.5.1",
     "minimist": "^1.2.0",
-    "nunjucks": "^2.3.0",
+    "nunjucks": "^3.0.0",
+    "rc": "^1.2.1",
     "request": "^2.69.0"
   },
   "devDependencies": {
@@ -29,20 +34,20 @@
     "autorelease": "^1.5.1",
     "autorelease-github": "^1.1.1",
     "autorelease-travis": "^1.2.0",
-    "babel-eslint": "^5.0.0",
-    "babel-plugin-external-helpers": "^6.5.0",
+    "babel-eslint": "^7.2.3",
     "babel-plugin-transform-async-to-generator": "^6.5.0",
-    "babel-plugin-transform-es2015-destructuring": "^6.5.0",
-    "babel-plugin-transform-es2015-parameters": "^6.5.0",
     "babel-plugin-transform-object-rest-spread": "^6.5.0",
-    "clean-css": "^3.4.9",
-    "eslint": "~2.2.0",
-    "node-sass": "^3.4.2",
-    "postcss-cli": "^2.5.1",
-    "resolve": "^1.1.7",
-    "rollup": "^0.25.4",
+    "clean-css": "^4.0.12",
+    "cssnano": "^3.10.0",
+    "cssnano-cli": "^1.0.5",
+    "eslint": "^3.19.0",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "postcss-cli": "^3.2.0",
+    "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.4.0",
-    "tape": "^4.4.0"
+    "rollup-plugin-json": "^2.1.1",
+    "shx": "^0.2.2"
   },
   "keywords": [
     "tyler",
@@ -50,5 +55,11 @@
     "tylerjohnson.me",
     "tjme"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "cli.js",
+    "styles.css",
+    "views"
+  ]
 }
