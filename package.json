@@ -15,7 +15,7 @@
     "lint": "eslint src/ test/",
     "clean": "shx rm -rf cli.js index.js styles.css",
     "build-lib": "rollup src/index.js -c > index.js",
-    "build-cli": "rollup src/cli.js -c >> cli.js && shx chmod +x cli.js",
+    "build-cli": "shx echo \"#!/usr/bin/env node\" > cli.js && rollup src/cli.js -c >> cli.js && shx chmod +x cli.js",
     "build-styles": "node-sass src/styles.scss | cssnano > styles.css",
     "build": "npm-run-all clean build-lib build-cli build-styles",
     "autorelease": "autorelease pre && npm publish && autorelease post"
