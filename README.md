@@ -8,5 +8,5 @@ If you have the desire to use this locally, please see a doctor because there mi
 
 ```sh
 $ npm i @mrgalaxy/tjme -g
-$ tjme-server
+$ tjme
 ```
