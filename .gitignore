@@ -2,3 +2,5 @@
 /index.js
 /cli.js
 /styles.css
+/kubernetes.yml
+/deploy-config.yml

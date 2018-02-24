@@ -6,7 +6,6 @@ import {name,version} from "../package.json";
 const createApp = require("./");
 
 let argv = minimist(process.argv.slice(2), {
-  string: [ "host", "port" ],
   boolean: [ "help", "version" ],
   alias: {
     h: "help", H: "help",
@@ -29,7 +28,7 @@ $ tjme-server [OPTIONS]
 }
 
 if (argv.version) {
-  console.log("%s %s", name, version || "edge");
+  console.log("%s %s", name, version);
   process.exit(0);
 }
 

@@ -1,14 +1,14 @@
 sudo: false
 language: node_js
 node_js:
-  - '7'
+  - '8'
 cache:
   directories:
     - node_modules
 notifications:
   email: false
 before_install:
-  - npm i -g npm@latest
+  - npm i -g npm@4
 install:
   - npm install
 before_script:
