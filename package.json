@@ -20,6 +20,7 @@
     "build-cli": "shx echo \"#!/usr/bin/env node\" > cli.js && rollup src/cli.js -c >> cli.js && shx chmod +x cli.js",
     "build-styles": "node-sass src/styles.scss | cssnano > styles.css",
     "build": "npm-run-all clean build-lib build-cli build-styles",
+    "prepublish": "npm run build",
     "autorelease": "autorelease pre && npm publish && autorelease post"
   },
   "dependencies": {
@@ -43,7 +44,7 @@
     "cssnano": "^3.10.0",
     "cssnano-cli": "^1.0.5",
     "eslint": "^3.19.0",
-    "node-sass": "^4.5.2",
+    "node-sass": "^4.7.2",
     "npm-run-all": "^4.0.2",
     "postcss-cli": "^3.2.0",
     "rollup": "^0.41.6",
