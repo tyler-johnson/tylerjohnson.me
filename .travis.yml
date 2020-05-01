@@ -20,7 +20,7 @@ stages:
   - name: release
     if: type = pull_request OR branch = master
   - name: publish
-    # if: NOT (type IN (pull_request, api)) AND branch = master
+    if: NOT (type IN (pull_request, api)) AND branch = master
 jobs:
   include:
     - stage: release
