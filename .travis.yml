@@ -14,6 +14,8 @@ before_install:
   - npm i npm -g
   - npm i yarn -g
   - echo "npm $(npm -v)" && echo "yarn $(yarn -v)"
+  # authenticate the registry
+  - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 install:
   - yarn
 stages:
