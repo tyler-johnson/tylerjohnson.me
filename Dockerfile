@@ -3,12 +3,11 @@ FROM node:lts-slim
 WORKDIR /app
 COPY . /app/
 
-RUN useradd -r pduser && \
+RUN useradd -r -m pduser && \
   chown -R pduser:pduser /app
 
 USER pduser
-
-RUN yarn --prod
+RUN yarn
 
 ENV PORT=8080
 EXPOSE $PORT
