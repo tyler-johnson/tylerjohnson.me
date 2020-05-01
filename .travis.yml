@@ -1,22 +1,43 @@
-sudo: false
+os: linux
+dist: xenial
 language: node_js
 node_js:
-  - '8'
-cache:
-  directories:
-    - node_modules
-notifications:
-  email: false
-before_install:
-  - npm i -g npm@4
-install:
-  - npm install
-before_script:
-  - npm run lint
-script:
-  - npm run build
-after_success:
-  - npm run autorelease
+  - "12"
+env:
+  - NODE_ENV=development CLOUDSDK_CORE_PROJECT=personal-165615 CLOUDSDK_COMPUTE_ZONE=us-central1-a
 branches:
   only:
-    - "master"
+    - master
+    - develop
+before_install:
+  # update yarn and npm
+  - npm i npm -g
+  - npm i yarn -g
+  - echo "npm $(npm -v)" && echo "yarn $(yarn -v)"
+install:
+  - yarn
+stages:
+  - name: release
+    if: type = pull_request OR branch = master
+  - name: publish
+    if: NOT (type IN (pull_request, api)) AND branch = master
+jobs:
+  include:
+    - stage: release
+      script:
+        # - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn test; fi
+        - npm run autorelease -- --expanded
+    - stage: publish
+      services:
+        - docker
+      install:
+        - source .ci/gcloud-setup.sh
+        - yarn
+      script:
+        - docker build -t tmp_build .
+        - docker tag tmp_build gcr.io/personal-165615/tjme:latest
+        - docker push gcr.io/personal-165615/tjme:latest
+cache:
+  yarn: true
+  directories:
+    - "$HOME/google-cloud-sdk"
