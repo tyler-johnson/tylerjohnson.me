@@ -1,9 +1,16 @@
-FROM mhart/alpine-node:latest
+FROM node:lts-slim
 
-RUN npm i @mrgalaxy/tjme -g
+WORKDIR /app
+COPY . /app/
+
+RUN useradd -r pduser && \
+  chown -R pduser:pduser /app
+
+USER pduser
+
+RUN yarn --prod
 
 ENV PORT=8080
 EXPOSE $PORT
 
-VOLUME ["/etc/tjme"]
-ENTRYPOINT [ "tjme", "--host", "0.0.0.0" ]
+CMD ["node","bin/cli.js","--host","0.0.0.0"]
