@@ -1,3 +1,5 @@
+export CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
 if [ -z "$GCLOUD_KEY" ]; then
   >&2 echo "Missing GCLOUD_KEY"
   exit 1

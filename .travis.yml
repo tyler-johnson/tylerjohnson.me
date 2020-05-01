@@ -4,7 +4,7 @@ language: node_js
 node_js:
   - "12"
 env:
-  - NODE_ENV=development
+  - NODE_ENV=development CLOUDSDK_CORE_PROJECT=personal-165615 CLOUDSDK_COMPUTE_ZONE=us-central1-a
 branches:
   only:
     - master
@@ -20,7 +20,7 @@ stages:
   - name: release
     if: type = pull_request OR branch = master
   - name: publish
-    if: NOT (type IN (pull_request, api)) AND branch = master
+    # if: NOT (type IN (pull_request, api)) AND branch = master
 jobs:
   include:
     - stage: release
@@ -31,7 +31,7 @@ jobs:
       services:
         - docker
       install:
-        - source .ci/prepare.sh
+        - source .ci/gcloud-setup.sh
         - yarn
       script:
         - docker build -t tmp_build .
