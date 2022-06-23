@@ -1,3 +1,39 @@
+## [3.0.0](https://github.com/tyler-johnson/tylerjohnson.me/tree/release/2/) - Jun 23, 2022
+
+### Breaking
+- Updated deps, replaced random color API, and updated links.
+
+### Dependencies
+- @types/express: `^4.17.6` → `^4.17.13`
+- @types/minimist: `^1.2.0` → `^1.2.2`
+- @types/node-fetch: `^2.5.7` → `^2.6.2`
+- @types/nunjucks: `^3.1.3` → `^3.2.1`
+- @types/randomcolor: none → `^0.5.6`
+- @types/rc: `^1.1.0` → `^1.2.1`
+- express: `^4.17.1` → `^4.18.1`
+- minimist: `^1.2.5` → `^1.2.6`
+- nunjucks: `^3.2.1` → `^3.2.3`
+- randomcolor: none → `^0.6.2`
+- tslib: `^1.11.1` → `^2.4.0`
+- @pagedip/tool-autorelease: `^3.7.2` → `^3.9.2`
+- @types/node: `^13.13.4` → `^18.0.0`
+- @typescript-eslint/eslint-plugin: `^2.30.0` → `^5.29.0`
+- @typescript-eslint/parser: `^2.30.0` → `^5.29.0`
+- chokidar: none → `^3.5.3`
+- eslint: `^6.8.0` → `^8.18.0`
+- eslint-config-prettier: `^6.11.0` → `^8.5.0`
+- eslint-plugin-prettier: `^3.1.3` → `^4.0.0`
+- prettier: `^2.0.5` → `^2.7.1`
+- shx: `^0.3.2` → `^0.3.4`
+- typescript: `^3.8.3` → `^4.7.4`
+
+### Commits
+[`abd43d9e..3c1f7fa5`](https://github.com/tyler-johnson/tylerjohnson.me/compare/abd43d9e744581c54985f41039a51d5e392cf4f4..3c1f7fa5f2e970c77022d8278ffa3c195bc4e49c)
+- [`3c1f7fa5`](https://github.com/tyler-johnson/tylerjohnson.me/commit/3c1f7fa5f2e970c77022d8278ffa3c195bc4e49c) Merge pull request #20 from tyler-johnson/develop
+- [`ce5125b4`](https://github.com/tyler-johnson/tylerjohnson.me/commit/ce5125b4e7bdc3e888e70b5a9fe7dc360a396200) update dockerfile
+- [`5fcba4dd`](https://github.com/tyler-johnson/tylerjohnson.me/commit/5fcba4dd4d5570c4fc083a108ee8fd21aa65108e) 2022 updates
+
+
 ## [2.1.0](https://github.com/tyler-johnson/tylerjohnson.me/tree/release/1/) - May 1, 2020
 
 ### Features
