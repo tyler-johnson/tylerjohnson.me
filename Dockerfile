@@ -3,10 +3,10 @@ FROM node:lts-slim
 WORKDIR /app
 COPY . /app/
 
-RUN useradd -r -m pduser && \
-  chown -R pduser:pduser /app
+RUN useradd -r -m tjme && \
+  chown -R tjme:tjme /app
 
-USER pduser
+USER tjme
 RUN yarn
 
 ENV PORT=8080

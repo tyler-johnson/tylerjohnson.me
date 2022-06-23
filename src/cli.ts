@@ -54,7 +54,12 @@ if (conf.bind && typeof conf.bind === "string") {
 if (!host) host = conf.host || "127.0.0.1";
 if (!port) port = conf.port || process.env.PORT || "3000";
 
-const app = createApp(conf);
+const app = createApp({
+  hostname: conf.hostname,
+  template: conf.template,
+  name: conf.name,
+  version: conf.version,
+});
 
 app
   .listen(port, host, function (this: Server) {

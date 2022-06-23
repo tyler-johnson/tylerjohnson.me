@@ -12,11 +12,11 @@
 	<body class="{% block bodyclass %}{% endblock %}">
 		{% block body %}{% endblock %}
 
-		{% set color = colors | random %}
+		{% set color = getRandomColor() %}
 		<div class="color">
-			This color is <a href="{{ color.url }}">{{ color.title }}</a>.
+			This color is {{ color.name.value }} ({{ color.hex.value }}).
 			Get a <a href="">different color</a>.
 		</div>
-		<style type="text/css">body { background-color: #{{ color.hex }}; }</style>
+		<style type="text/css">body { background-color: {{ color.hex.value }}; }</style>
 	</body>
 </html>

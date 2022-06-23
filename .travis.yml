@@ -2,7 +2,7 @@ os: linux
 dist: xenial
 language: node_js
 node_js:
-  - "12"
+  - "14"
 env:
   - NODE_ENV=development CLOUDSDK_CORE_PROJECT=personal-165615 CLOUDSDK_COMPUTE_ZONE=us-central1-a
 branches:
@@ -27,7 +27,7 @@ jobs:
   include:
     - stage: release
       script:
-        # - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn test; fi
+        - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn lint; fi
         - npm run autorelease -- --expanded
     - stage: publish
       services:
