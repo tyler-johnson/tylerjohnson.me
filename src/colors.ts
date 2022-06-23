@@ -1,45 +1,78 @@
 import fetch from "node-fetch";
-import qs from "querystring";
-import { URL } from "url";
+import randomcolor from "randomcolor";
 
-export interface ColorObject {
-  url: string;
-  title: string;
-  hex: string;
+export interface ColorAPIData {
+  hex: {
+    value: string;
+    clean: string;
+  };
+  name: {
+    value: string;
+    closest_named_hex: string;
+    exact_match_name: boolean;
+    distance: number;
+  };
 }
 
-export function isColorObject(obj: any): obj is ColorObject {
-  return obj != null && typeof obj.url === "string" && typeof obj.title === "string" && typeof obj.hex === "string";
+export function isColorAPIData(obj: any): obj is ColorAPIData {
+  return (
+    obj != null &&
+    obj.name != null &&
+    typeof obj.name.value === "string" &&
+    typeof obj.name.closest_named_hex === "string" &&
+    typeof obj.name.exact_match_name === "boolean" &&
+    typeof obj.name.distance === "number" &&
+    obj.hex != null &&
+    typeof obj.hex.value === "string" &&
+    typeof obj.hex.clean === "string"
+  );
 }
 
-export const colors: ColorObject[] = [];
+export const colors: ColorAPIData[] = [];
 
 export async function refresh() {
-  const result = await getColors({ numResults: 30, briRange: "10,69" });
+  const result = await getColors(20);
   if (!Array.isArray(result)) return [];
 
-  const c = result.filter(isColorObject);
   colors.splice(0, colors.length);
-  colors.push(...c);
-  return c;
+  colors.push(...result);
+  return colors;
 }
 
-export async function getColors(opts: any) {
-  const url = new URL("http://www.colourlovers.com/api/colors/top");
-  url.search = qs.stringify({ ...opts, format: "json" });
+export async function getColors(count: number) {
+  const randhex = Array.from(new Array(count), () => randomcolor({ luminosity: "dark", format: "hex" }).substring(1));
+  const result: ColorAPIData[] = [];
 
-  const resp = await fetch(url);
+  for (const hex of randhex) {
+    const resp = await fetch(`https://www.thecolorapi.com/id?hex=${hex}`);
 
-  if (!resp.ok) {
-    throw new Error("Failed to fetch.");
+    if (!resp.ok) {
+      throw new Error("Failed to fetch.");
+    }
+
+    const data = await resp.json();
+
+    if (!isColorAPIData(data)) {
+      throw new Error("Invalid response.");
+    }
+
+    result.push(data);
+
+    // sleep a bit since this is a free API
+    await new Promise((ok) => setTimeout(ok, 500));
   }
 
-  return await resp.json();
+  return result;
+}
+
+export function getRandomColor(): ColorAPIData {
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 
 async function update() {
   try {
     await refresh();
+    console.log("[%s] Colors Updated.", new Date().toISOString());
   } catch (e) {
     console.error("Problem fetching colors.");
     console.error(e.stack || e);

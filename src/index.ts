@@ -3,7 +3,7 @@ import nunjucks from "nunjucks";
 import os from "os";
 import fs from "fs";
 import path from "path";
-import { colors } from "./colors";
+import { getRandomColor } from "./colors";
 
 const pkgsrc = fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8");
 const pkg = JSON.parse(pkgsrc);
@@ -35,7 +35,7 @@ export default function (opts: Options = {}) {
     name,
     version,
     ...template,
-    colors,
+    getRandomColor,
     title: "My Name is Tyler Johnson.",
   });
 

@@ -12,6 +12,7 @@
     "jsx": "react",
     "baseUrl": ".",
     "types": ["node"],
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "useUnknownInCatchVariables": false
   }
 }
