@@ -62,7 +62,7 @@ body {
   color: inherit;
   font-size: 32px;
   opacity: 0.7;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 .container ul.links li a:hover {
   opacity: 1;
@@ -86,6 +86,13 @@ body {
 .container ul.links li:hover div.alt {
   opacity: 0.8;
   margin-top: 0;
+}
+
+@media (max-width: 769px) {
+  .container ul.links li div.alt {
+    opacity: 1;
+    margin-top: 0;
+  }
 }
 
 .color {

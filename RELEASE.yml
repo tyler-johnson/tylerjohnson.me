@@ -2,5 +2,5 @@ access: public
 breaking:
 features:
 fixes:
-- Fix color CSS on mobile.
+- Fix styling on mobile.
 chores:
