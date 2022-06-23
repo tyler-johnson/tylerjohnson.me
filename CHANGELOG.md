@@ -1,3 +1,15 @@
+## [3.0.1](https://github.com/tyler-johnson/tylerjohnson.me/tree/release/4/) - Jun 23, 2022
+
+### Fixes
+- Fix styling on mobile.
+
+### Commits
+[`badf631c..beb99b84`](https://github.com/tyler-johnson/tylerjohnson.me/compare/badf631cff9da80271a81057ca399b6404806d23..beb99b84bdf43ef286b164d134e6ba80d59370db)
+- [`beb99b84`](https://github.com/tyler-johnson/tylerjohnson.me/commit/beb99b84bdf43ef286b164d134e6ba80d59370db) Merge pull request #22 from tyler-johnson/develop
+- [`f2ccb3fa`](https://github.com/tyler-johnson/tylerjohnson.me/commit/f2ccb3fa2203fc440f569cb2d7743ce0c71b1b64) improve links on mobile
+- [`bac6163a`](https://github.com/tyler-johnson/tylerjohnson.me/commit/bac6163ae003c4767d648faa09a66bcec3d19ce9) fix color css on mobile
+
+
 ## [3.0.0](https://github.com/tyler-johnson/tylerjohnson.me/tree/release/3/) - Jun 23, 2022
 
 ### Breaking
