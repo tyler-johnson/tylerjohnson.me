@@ -2,4 +2,5 @@ access: public
 breaking:
 features:
 fixes:
+- Fix styling on mobile.
 chores:
