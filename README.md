@@ -1,17 +1,38 @@
-# tylerjohnson.me
+# create-svelte
 
-[![npm](https://img.shields.io/npm/v/@mrgalaxy/tjme.svg)](https://www.npmjs.com/package/@mrgalaxy/tjme) [![Build Status](https://travis-ci.org/tyler-johnson/tylerjohnson.me.svg?branch=master)](https://travis-ci.org/tyler-johnson/tylerjohnson.me)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-This is the main source for my personal website, [tylerjohnson.me](http://tylerjohnson.me). It is just a tiny Node.js/Express web app.
+## Creating a project
 
-```bash
-npm i @mrgalaxy/tjme -g
-tjme
-```
-
-Also available as a Docker image!
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-docker pull mrgalaxy/tjme:latest
-docker run -d --name tjme -p 8080:8080 mrgalaxy/tjme
+# create a new project in the current directory
+npm create svelte@latest
+
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
