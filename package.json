@@ -1,63 +1,41 @@
 {
-  "name": "@mrgalaxy/tjme",
-  "version": "0.0.0-edge",
-  "description": "My personal website.",
-  "author": "Tyler Johnson <tyler@tylerjohnson.me>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tyler-johnson/tylerjohnson.me.git"
-  },
-  "main": "index.js",
-  "bin": {
-    "tjme": "cli.js"
-  },
-  "scripts": {
-    "lint": "eslint ./ --ext .js,.jsx,.ts,.tsx",
-    "clean": "shx rm -rf lib",
-    "build:full": "npm-run-all clean build",
-    "build": "tsc -p tsconfig.build.json",
-    "prepare": "npm-run-all build",
-    "autorelease": "pagedip-autorelease"
-  },
-  "dependencies": {
-    "@types/express": "^4.17.13",
-    "@types/minimist": "^1.2.2",
-    "@types/node-fetch": "^2.6.2",
-    "@types/nunjucks": "^3.2.1",
-    "@types/randomcolor": "^0.5.6",
-    "@types/rc": "^1.2.1",
-    "express": "^4.18.1",
-    "minimist": "^1.2.6",
-    "node-fetch": "^2.6.0",
-    "nunjucks": "^3.2.3",
-    "randomcolor": "^0.6.2",
-    "rc": "^1.2.8",
-    "tslib": "^2.4.0"
-  },
-  "devDependencies": {
-    "@pagedip/tool-autorelease": "^3.9.2",
-    "@types/node": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
-    "@typescript-eslint/parser": "^5.29.0",
-    "chokidar": "^3.5.3",
-    "eslint": "^8.18.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
-    "shx": "^0.3.4",
-    "typescript": "^4.7.4"
-  },
-  "keywords": [
-    "tyler",
-    "johnson",
-    "tylerjohnson.me",
-    "tjme"
-  ],
-  "license": "MIT",
-  "files": [
-    "lib",
-    "public",
-    "views"
-  ]
+	"name": "tylerjohnson.me",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test": "npm run test:integration && npm run test:unit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write .",
+		"test:integration": "playwright test",
+		"test:unit": "vitest"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-cloudflare": "^2.3.2",
+		"@sveltejs/kit": "^1.20.4",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"autoprefixer": "^10.4.15",
+		"daisyui": "^3.5.1",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte": "^2.30.0",
+		"postcss": "^8.4.28",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.10.1",
+		"svelte": "^4.0.5",
+		"svelte-check": "^3.4.3",
+		"tailwindcss": "^3.3.3",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^4.4.2",
+		"vitest": "^0.32.2"
+	},
+	"type": "module"
 }
