@@ -1,8 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+@plugin "daisyui/theme" {
+  name: "winter";
+  default: true;
+}
+
+@plugin "daisyui/theme" {
+  name: "night";
+  prefersdark: true;
+}
 
 html,
 body {
-	@apply w-full h-full;
+  @apply w-full h-full;
 }
