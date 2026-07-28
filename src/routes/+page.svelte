@@ -2,10 +2,7 @@
   <div class="flex flex-col gap-8 items-center">
     <div class="flex flex-col items-center gap-2 bg-base-200 rounded-box p-8 text-center">
       <div class="text-sm text-base-content/60">👋🏼 Hello, my name is</div>
-      <div class="text-2xl">
-        Tyler Johnson <span class="text-base">(aka MrGalaxy)</span>
-      </div>
-      <div class="text-sm text-base-content/60">I'm a Software Engineer.</div>
+      <div class="text-2xl">Tyler Johnson</div>
     </div>
 
     <div class="flex items-center gap-8">

@@ -2,8 +2,8 @@ import { expect, test } from "@playwright/test";
 
 test("index page introduces me", async ({ page }) => {
   await page.goto("/");
+  await expect(page.getByText("Hello, my name is")).toBeVisible();
   await expect(page.getByText("Tyler Johnson")).toBeVisible();
-  await expect(page.getByText("I'm a Software Engineer.")).toBeVisible();
 });
 
 test("index page links to github and email", async ({ page }) => {
