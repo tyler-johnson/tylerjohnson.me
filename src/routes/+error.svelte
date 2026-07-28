@@ -8,6 +8,11 @@
     "Thank you. Come again.",
     "Reloading this page several more times may solve the issue.",
     "I'm not sure what you were expecting.",
+    "Statistically, this is the most-visited page on the site.",
+    "Nothing here. Not even a database to blame.",
+    "At least it loaded quickly.",
+    "The site works fine. It's just this part that doesn't exist.",
+    "Have you tried turning the URL off and on again?",
     "(╯°□°）╯︵ ┻━┻",
     "Shh bby is ok",
   ];
