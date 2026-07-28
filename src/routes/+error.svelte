@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts">
   import { onMount } from "svelte";
 
   const messages = [
@@ -11,10 +11,9 @@
     "(╯°□°）╯︵ ┻━┻",
     "Shh bby is ok",
   ];
-</script>
 
-<script lang="ts">
-  let message: string | undefined;
+  // Picked on mount so the prerendered HTML doesn't lock in one message.
+  let message = $state<string>();
 
   onMount(() => {
     message = messages[Math.floor(Math.random() * messages.length)];
