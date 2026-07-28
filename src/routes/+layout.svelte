@@ -55,15 +55,13 @@
 {@render children?.()}
 
 <div class="dropdown dropdown-top dropdown-end fixed bottom-2 right-2">
-  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-  <!-- svelte-ignore a11y_label_has_associated_control -->
-  <label tabindex="0" class="btn btn-sm btn-primary">
-    Theme <i class="fa-solid fa-caret-up"></i>
-  </label>
+  <!-- A real button is natively focusable, so daisyUI's :focus-within opens the
+       menu without the tabindex/label workaround this used to need. -->
+  <button class="btn btn-sm btn-primary" aria-haspopup="menu">
+    Theme <i class="fa-solid fa-caret-up" aria-hidden="true"></i>
+  </button>
 
-  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
   <ul
-    tabindex="0"
     class="dropdown-content z-[1] menu flex-nowrap p-2 shadow bg-base-300 rounded-box w-64 mb-2 max-h-[calc(100vh-10rem)] overflow-auto"
   >
     <li>

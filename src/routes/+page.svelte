@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Tyler Johnson</title>
+</svelte:head>
+
 <div class="flex items-center justify-center h-full font-mono p-4">
   <div class="flex flex-col gap-8 items-center">
     <div class="flex flex-col items-center gap-2 bg-base-200 rounded-box p-8 text-center">
