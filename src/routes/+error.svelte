@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts">
   import { onMount } from "svelte";
 
   const messages = [
@@ -8,13 +8,17 @@
     "Thank you. Come again.",
     "Reloading this page several more times may solve the issue.",
     "I'm not sure what you were expecting.",
+    "Statistically, this is the most-visited page on the site.",
+    "Nothing here. Not even a database to blame.",
+    "At least it loaded quickly.",
+    "The site works fine. It's just this part that doesn't exist.",
+    "Have you tried turning the URL off and on again?",
     "(╯°□°）╯︵ ┻━┻",
     "Shh bby is ok",
   ];
-</script>
 
-<script lang="ts">
-  let message: string | undefined;
+  // Picked on mount so the prerendered HTML doesn't lock in one message.
+  let message = $state<string>();
 
   onMount(() => {
     message = messages[Math.floor(Math.random() * messages.length)];
