@@ -29,8 +29,21 @@ test("theme picker switches the active theme", async ({ page }) => {
   const html = page.locator("html");
   await expect(html).not.toHaveAttribute("data-theme");
 
-  await page.getByText("Theme", { exact: false }).click();
+  await page.getByRole("button", { name: /Theme/ }).click();
   await page.getByRole("button", { name: "Dracula" }).click();
 
   await expect(html).toHaveAttribute("data-theme", "dracula");
+});
+
+test("theme picker is reachable by keyboard", async ({ page }) => {
+  await page.goto("/");
+  const menu = page.locator("ul.dropdown-content");
+  await expect(menu).toBeHidden();
+
+  // The trigger is a real button, so focusing it opens the menu via :focus-within.
+  await page.getByRole("button", { name: /Theme/ }).focus();
+  await expect(menu).toBeVisible();
+
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("button", { name: "Auto" })).toBeFocused();
 });

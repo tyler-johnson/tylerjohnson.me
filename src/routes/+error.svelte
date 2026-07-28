@@ -25,6 +25,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>404 Not Found · Tyler Johnson</title>
+</svelte:head>
+
 <div class="py-8">
   <div class="container mx-auto flex flex-col gap-2 p-4 font-mono">
     <div class="text-4xl text-base-content/60">This page seems to be</div>
